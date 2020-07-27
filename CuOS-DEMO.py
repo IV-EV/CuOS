@@ -1,39 +1,62 @@
-import sys
+import time, os
 
-print("                  /\                       ")
-print("                 /  \                      ")
-print("                /    \                     ")
-print("               /      \                    ")
-print("              /        \                   ")
-print("        _____/__________\______                  ")
-print("      /                        \            ")
-print("     |     Are you one of us?   |           ")
-print("      \________________________/           ")
-print("             \          /                  ")
-print("              \        /                   ")
-print("               \      /                    ")
-print("                \    /                     ")
-print("                 \  /                      ")
-print("                  \/                       ")
-print("                                    ")
+#Define start ASCII art as a function for later call if needed
+def startMessage():
+    #Clear screen
+    os.system("cls")
+    #Print ASCII art
+    print("""                               /\\
+                              /  \\
+                             /    \\
+                            /      \\
+                           /        \\
+                     _____/__________\______
+                    /                        \\
+                   |     Are you one of us?   |
+                    \________________________/
+                          \          /
+                           \        /
+                            \      /
+                             \    /
+                              \  /
+                               \/
+                                                    """)
 
-a_ui = input("             [Y/N]              ")
+#Define check for when user is inputting for the first time
+def falseCheck():
+    return input("[Y/N] ")
 
-if a_ui == "Y":
-    print("You're not alone. Welcome to the rebelion. Follow the White Rabbit.")
-    exit()
-elif a_ui == "N":
-    print("The system doesn't need you.")
-    print("[Preparing to eject Drive A: BrnFnct]")
-    print("[Drive Ejected]")
-    exit()
-else:
-    print("Invalid Input. Try Again: [Y/N]")
-    if a_ui == "Y":
-        print("You're not alone. Welcome to the rebelion. Follow the White Rabbit.")
+#Define check for when user is inputting again after an invalid input
+def trueCheck():
+    return input("Invalid input.\n[Y/N] ")
+
+#Definition of starting choice
+def startGame(again):
+
+    #Perform either falseCheck or trueCheck depending on whether user is going again
+    if again == False:
+        #Assign user response to variable "usrInput"
+        usrInput = falseCheck()
+    if again == True:
+        #Assign user response to variable "usrInput"
+        usrInput = trueCheck()
+
+    #Display message based on user input
+    if usrInput == "y":
+        print("You're not alone. Welcome to the rebellion. Follow the White Rabbit.")
         exit()
-    elif a_ui == "N":
-        print("The system doesn't need you.")
-        print("[Preparing to eject Drive A: BrnFnct]")
-        print("[Drive Ejected]")
+    elif usrInput == "n":
+        print("""The system doesn't need you.
+        [Preparing to eject Drive A: BrnFnct]
+        [Drive Ejected]""")
         exit()
+    else:
+        #If input is not "y" or "n", startGame with again set to True
+        startGame(True)
+
+
+#Show start message
+startMessage()
+
+#Start game by calling first choice
+startGame(False)
