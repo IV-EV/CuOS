@@ -24,11 +24,13 @@ def startMessage():
 
 #Define check for when user is inputting for the first time
 def falseCheck():
-    return input("[Y/N] ")
+    #Return input in lowercase
+    return input("[Y/N] ").lower()
 
 #Define check for when user is inputting again after an invalid input
 def trueCheck():
-    return input("Invalid input.\n[Y/N] ")
+    #Return input in lowercase
+    return input("Invalid input.\n[Y/N] ").lower()
 
 #Definition of starting choice
 def startGame(again):
@@ -50,6 +52,9 @@ def startGame(again):
         [Preparing to eject Drive A: BrnFnct]
         [Drive Ejected]""")
         exit()
+    if usrInput == "restart":
+        startMessage()
+        startGame(False)
     else:
         #If input is not "y" or "n", startGame with again set to True
         startGame(True)
