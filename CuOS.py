@@ -1,5 +1,17 @@
 import time, os, shelve
 
+#Define saving function
+def savegame(savenum):
+    #save file(s) i/o
+    with shelve.open('PlayerSave') as save:
+        save['Progress'] = savenum
+
+#Auto i/o
+def poscheck():
+    with shelve.open('PlayerSave') as save:
+        gamepos = save['Progress']
+        return gamepos
+
 #Define start ASCII art as a function for later call if needed
 def startMessage():
     #Clear screen
@@ -61,9 +73,15 @@ def startGame(again):
         #If input is not "y" or "n", startGame with again set to True
         startGame(True)
 
+try:
+    if poscheck() == 0:
+        #Show start message
+        startMessage()
 
-#Show start message
-startMessage()
-
-#Start game by calling first choice
-startGame(False)
+        #Start game by calling first choice
+        startGame(False)
+    else:
+        print('yeet')
+except:
+    print('failed ya fuck')
+    exit()
