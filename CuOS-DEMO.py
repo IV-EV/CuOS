@@ -1,4 +1,4 @@
-import time, os
+import time, os, shelve
 
 #Define start ASCII art as a function for later call if needed
 def startMessage():
