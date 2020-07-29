@@ -9,7 +9,7 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
 #Set window properties and open it
-size = (700, 500)
+size = (800, 600)
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("CuOS")
 
