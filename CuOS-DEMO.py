@@ -35,7 +35,8 @@ def trueCheck():
 #Definition of starting choice
 def startGame(again):
 
-    #Perform either falseCheck or trueCheck depending on whether user is going again
+    #Perform either falseCheck or trueCheck depending on
+    #whether user is going again
     if again == False:
         #Assign user response to variable "usrInput"
         usrInput = falseCheck()
@@ -45,7 +46,8 @@ def startGame(again):
 
     #Display message based on user input
     if usrInput == "y":
-        print("You're not alone. Welcome to the rebellion. Follow the White Rabbit.")
+        print("You're not alone. Welcome to the rebellion."
+        " Follow the White Rabbit.")
         exit()
     elif usrInput == "n":
         print("""The system doesn't need you.
